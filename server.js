@@ -1,5 +1,5 @@
 require('dotenv').config();
-require('express-async-errors'); // hata yakalamak için
+// require('express-async-errors'); // hata yakalamak için
 
 const express = require('express');
 const todoRoutes = require('./routes/todoRoutes');
