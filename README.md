@@ -41,14 +41,10 @@ cd node-todo-api
 
 ### 2. Environment Variables
 
-\`.env\` dosyası oluştur:
-
-\`\`\`env
-MONGODB_URI=mongodb://mongo:27017/todoapp
-PORT=3000
-JWT_SECRET=your_jwt_secret_here
-REFRESH_SECRET=your_refresh_secret_here
-\`\`\`
+`.env.example` dosyasını kopyala ve düzenle:
+```bash
+cp .env.example .env
+```
 
 ### 3. Docker ile Çalıştır
 
