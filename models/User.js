@@ -14,7 +14,14 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Şifre gerekldidir'],
         minLength: [6, 'Şifre en az 6 karakterli olmalı']
-    }
+    },
+    refreshTokens: [{
+        token: String,
+        createdAt: {
+            type: Date,
+            default: Date.now
+        } // refreshToken array'inin içindeki her token için createdAt istiyoruz 30 gün sonra temizlenebilsin diye
+    }]
 },{
     timestamps: true
 });
