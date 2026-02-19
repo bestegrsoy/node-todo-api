@@ -79,7 +79,7 @@ API: \`http://localhost:3000\`
 
 ### Register
 
-\`\`\`bash
+```bash
 POST /auth/register
 Content-Type: application/json
 
@@ -87,11 +87,11 @@ Content-Type: application/json
   "email": "user@example.com",
   "password": "123456"
 }
-\`\`\`
+```
 
 ### Login
 
-\`\`\`bash
+```
 POST /auth/login
 Content-Type: application/json
 
@@ -99,10 +99,10 @@ Content-Type: application/json
   "email": "user@example.com",
   "password": "123456"
 }
-\`\`\`
+```
 
 **Response:**
-\`\`\`json
+```
 {
   "accessToken": "eyJhbGc...",
   "refreshToken": "dGhpcyBpc...",
@@ -111,11 +111,11 @@ Content-Type: application/json
     "email": "user@example.com"
   }
 }
-\`\`\`
+```
 
 ### Todo Oluştur (Protected)
 
-\`\`\`bash
+```
 POST /todos
 Authorization: Bearer <accessToken>
 Content-Type: application/json
@@ -123,11 +123,11 @@ Content-Type: application/json
 {
   "title": "Yeni görev"
 }
-\`\`\`
+```
 
 ## 🏗️ Proje Yapısı
 
-\`\`\`
+```
 node-todo-api/
 ├── config/
 │   └── db.js              # MongoDB bağlantısı
@@ -150,7 +150,7 @@ node-todo-api/
 ├── Dockerfile
 ├── package.json
 └── server.js              # Entry point
-\`\`\`
+```
 
 ## 🔒 Güvenlik
 
