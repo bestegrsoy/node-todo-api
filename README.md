@@ -34,10 +34,10 @@ Node.js + Express + MongoDB ile geliştirilmiş, JWT tabanlı authentication sis
 
 ### 1. Repository'yi Klonla
 
-\`\`\`bash
+```
 git clone https://github.com/kullanici-adi/node-todo-api.git
 cd node-todo-api
-\`\`\`
+```
 
 ### 2. Environment Variables
 
@@ -48,9 +48,9 @@ cp .env.example .env
 
 ### 3. Docker ile Çalıştır
 
-\`\`\`bash
+```
 docker-compose up --build -d
-\`\`\`
+```
 
 API: \`http://localhost:3000\`
 
