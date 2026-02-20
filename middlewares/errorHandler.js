@@ -1,5 +1,7 @@
 const errorHandler = (err, req, res, next) => {
-    console.error(err);
+    if (process.env.NODE_ENV !== 'test') { // testte console loglarını görmemmek için
+        console.error(err); 
+    }
 
     if (err.name === 'ValidationError') {
         const messages = Object.values(err.errors).map(e => e.message);

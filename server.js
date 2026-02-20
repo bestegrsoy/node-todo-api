@@ -1,4 +1,8 @@
-require('dotenv').config();
+if (process.env.NODE_ENV === 'test') {
+    require('dotenv').config({ path: '.env.test' });
+} else {
+    require('dotenv').config();
+}
 // require('express-async-errors'); // hata yakalamak için
 
 const express = require('express');
@@ -50,9 +54,13 @@ app.use('/auth', authLimiter);
 app.use('/auth', authRoutes);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 3000; //
-app.listen(PORT, () => {
-    console.log(`Server running on ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'test'){ // Jest çalıştığında otomatik NODE_ENV=test yapıyor.
+    // yani test gelmediği sürece port kısmına girip normal çalışır.
+    const PORT = process.env.PORT || 3000; 
+    app.listen(PORT, () => {
+        console.log(`Server running on ${PORT}`);
+    });
+}
 
+module.exports = app;  // Test için export et
 // npm install express-async-errors 
