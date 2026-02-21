@@ -3,6 +3,7 @@ if (process.env.NODE_ENV === 'test') {
 } else {
     require('dotenv').config();
 }
+
 // require('express-async-errors'); // hata yakalamak için
 
 const express = require('express');
@@ -62,5 +63,8 @@ if (process.env.NODE_ENV !== 'test'){ // Jest çalıştığında otomatik NODE_E
     });
 }
 
+/*setTimeout(() => {
+    throw new Error('Test crash!');
+}, 5000);  // 5 saniye sonra crash */
+
 module.exports = app;  // Test için export et
-// npm install express-async-errors 

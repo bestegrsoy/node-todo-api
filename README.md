@@ -1,6 +1,7 @@
 # Todo API with Authentication(Basic)
 
 Node.js + Express + MongoDB ile geliştirilmiş, JWT tabanlı authentication sistemi içeren RESTful API.
+Teknolojileri üstünde öğrenmek için yapılmış basic bir node.js Todo uygulaması.
 
 ## 🚀 Özellikler
 
