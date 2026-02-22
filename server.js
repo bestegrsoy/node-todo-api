@@ -63,6 +63,17 @@ if (process.env.NODE_ENV !== 'test'){ // Jest çalıştığında otomatik NODE_E
     });
 }
 
+// Her instance'a unique ID ver
+const os = require('os');
+const instanceId = os.hostname();  // Container hostname
+
+app.get('/health', (req, res) => {
+    res.json({ 
+        instance: instanceId,
+        uptime: Math.floor(process.uptime())
+    });
+}); // load balancing test için
+
 /*setTimeout(() => {
     throw new Error('Test crash!');
 }, 5000);  // 5 saniye sonra crash */
