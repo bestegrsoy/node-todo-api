@@ -14,6 +14,9 @@ Teknolojileri üstünde öğrenmek için yapılmış basic bir node.js Todo uygu
 - 📝 Input validation
 - 🌐 CORS
 - 🔐 Security headers (Helmet)
+- 🔄 PM2 Process Manager (auto-restart, monitoring)
+- 🚀 Nginx Reverse Proxy (HTTPS, load balancing)
+- ✅ Testing (Jest + Supertest)
 
 ## 🛠️ Teknolojiler
 
@@ -25,6 +28,30 @@ Teknolojileri üstünde öğrenmek için yapılmış basic bir node.js Todo uygu
 - **Security:** Helmet, CORS, express-rate-limit
 - **Logging:** Morgan
 - **Containerization:** Docker, Docker Compose
+- **Process Manager:** PM2
+- **Reverse Proxy:** Nginx (HTTPS, load balancing)
+
+## 🔧 Production Özellikleri
+
+### PM2 Process Manager
+- Otomatik restart (crash durumunda)
+- Process monitoring
+- Zero-downtime deployment
+
+### Nginx Reverse Proxy
+- **HTTPS/SSL** - Self-signed certificate ile güvenli bağlantı
+- **Load Balancing** - Round-robin ile çoklu instance desteği
+- **Reverse Proxy** - Backend'i gizleme, güvenlik
+- **HTTP → HTTPS Redirect** - Otomatik yönlendirme
+
+### Scaling
+```bash
+# 3 instance ile çalıştır
+docker-compose up --scale app=3 -d
+
+# Health check
+curl https://localhost/health
+```
 
 ## 📦 Kurulum
 
@@ -51,6 +78,15 @@ cp .env.example .env
 
 ```
 docker-compose up --build -d
+```
+
+### 4. SSL Sertifikası Oluştur (Opsiyonel - Development)
+```bash
+mkdir -p nginx/ssl
+cd nginx/ssl
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout nginx-selfsigned.key \
+  -out nginx-selfsigned.crt
 ```
 
 API: \`http://localhost:3000\`
